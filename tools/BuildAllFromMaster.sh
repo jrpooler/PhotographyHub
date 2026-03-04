@@ -194,3 +194,15 @@ if [[ -x "$SYNC_SCRIPT" ]]; then
 else
   echo "[$(ts)] WARNING: SyncHubToiCloudForiPhone.sh not found or not executable."
 fi
+
+# ------------------------------------------------------------
+# Publish hub updates to GitHub (triggers Actions + Pages deploy)
+# ------------------------------------------------------------
+PUBLISH_SCRIPT="$TOOLS/PublishHubToGitHub.sh"
+
+if [[ -x "$PUBLISH_SCRIPT" ]]; then
+  echo "[$(ts)] Publishing hub updates to GitHub..."
+  "$PUBLISH_SCRIPT"
+else
+  echo "[$(ts)] WARNING: PublishHubToGitHub.sh not found or not executable."
+fi
