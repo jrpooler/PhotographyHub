@@ -11,19 +11,49 @@ if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   exit 0
 fi
 
-BRANCH="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo main)"
-if [[ "$BRANCH" != "main" ]]; then
-  echo "[$(ts)] WARNING: Current branch is '$BRANCH' (expected 'main'); skipping publish."
-  exit 0
-fi
+BRANCH="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo unknown)"
 
 if ! git remote get-url origin >/dev/null 2>&1; then
   echo "[$(ts)] WARNING: Remote 'origin' not configured; skipping publish."
   exit 0
 fi
 
+# Keep docs/ in sync so GitHub Pages also updates when source is main/docs.
+DOCS_DIR="$ROOT/docs"
+mkdir -p "$DOCS_DIR"
+
+rsync -a --delete --exclude ".DS_Store" --exclude "._*" "$ROOT/index.html" "$DOCS_DIR/"
+if [[ -d "$ROOT/pages" ]]; then
+  rsync -a --delete --exclude ".DS_Store" --exclude "._*" "$ROOT/pages/" "$DOCS_DIR/pages/"
+fi
+if [[ -d "$ROOT/assets" ]]; then
+  rsync -a --delete --exclude ".DS_Store" --exclude "._*" "$ROOT/assets/" "$DOCS_DIR/assets/"
+fi
+touch "$DOCS_DIR/.nojekyll"
+
 # Stage only hub files to avoid committing unrelated local edits.
-git add -- index.html pages/*.html pages/*-steps.txt pages/*.steps.txt .github/workflows/deploy-pages.yml 2>/dev/null || true
+# Use nullglob so missing patterns do not break staging.
+shopt -s nullglob
+stage_files=(
+  index.html
+  .github/workflows/deploy-pages.yml
+  docs/index.html
+  docs/.nojekyll
+  pages/*.html
+  pages/*-steps.txt
+  pages/*.steps.txt
+  docs/pages/*.html
+)
+if [[ -d docs/pages ]]; then
+  stage_files+=(docs/pages)
+fi
+if [[ -d docs/assets ]]; then
+  stage_files+=(docs/assets)
+fi
+if (( ${#stage_files[@]} > 0 )); then
+  git add -- "${stage_files[@]}"
+fi
+shopt -u nullglob
 
 if git diff --cached --quiet; then
   echo "[$(ts)] No staged hub changes to publish."
@@ -33,7 +63,11 @@ fi
 STAMP="$(date '+%Y-%m-%d %H:%M:%S %Z')"
 git commit -m "hub: rebuild from MASTER ($STAMP)" >/dev/null
 
-echo "[$(ts)] Pushing hub updates to origin/main..."
-git push origin main
+echo "[$(ts)] Pushing hub updates to origin/main from branch '$BRANCH'..."
+if ! git push origin HEAD:main; then
+  echo "[$(ts)] Push rejected. Attempting rebase onto origin/main, then retry..."
+  git pull --rebase --autostash origin main
+  git push origin HEAD:main
+fi
 
 echo "[$(ts)] GitHub publish complete."
