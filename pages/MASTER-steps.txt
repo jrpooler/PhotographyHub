@@ -92,6 +92,8 @@
 @@ back: ../index.html
 @@ order: 30
 
+# Updated on 03/05/2026 @ 10:25 AM
+
 # Prepare GPSMAP 67 -
 - Go outside where GPS can lock satellites.
 - Wait until GPS gets satellites
