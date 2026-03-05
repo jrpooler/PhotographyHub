@@ -141,6 +141,9 @@
 @@ back: ../index.html
 @@ order: 40
 
+# Updated on 03/05/2026 @ 10:25 AM
+
+
 # What “Legacy Years” means
 - Legacy Years are older photos already stored on the SanDisk (for example 2001–2024).
 - These photos live under your main photo root on the SanDisk, usually:
@@ -257,6 +260,9 @@
 @@ summary: Set up Bridge Tools, the Workflow Hub, and your SanDisk on a second Mac so everything works like your main system.
 @@ back: ../index.html
 @@ order: 90
+
+# Updated on 03/05/2026 @ 10:25 AM
+
 
 # Overview
 - Goal: make a second Mac behave like your main Mac for Bridge work:
@@ -454,6 +460,9 @@
 @@ back: ../index.html
 @@ order: 100
 
+# Updated on 03/05/2026 @ 10:25 AM
+
+
 # One-time setup (Dick’s Mac)
 - Apple menu > System Settings
 - Privacy & Security > Screen & System Audio Recording > FaceTime ON
@@ -492,6 +501,9 @@
 @@ summary: Modify Master Steps
 @@ back: ../index.html
 @@ order: 110
+
+# Updated on 03/05/2026 @ 10:25 AM
+
 
 # Login to Piper NAS
 - Click on File Station
