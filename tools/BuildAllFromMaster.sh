@@ -10,6 +10,7 @@ MASTER="$PAGES/MASTER-steps.txt"
 INDEX="$HUB_ROOT/index.html"
 TMP_INDEX="$HUB_ROOT/.index.new.html"
 STAMP="$(date '+%Y-%m-%d %H:%M:%S %Z')"
+MASTER_STAMP="$(date -r "$MASTER" '+%Y-%m-%d %H:%M:%S %Z')"
 TITLE="Bridge Tools — Photography Workflow Hub"
 SYNC_NOTE="Edits happen on the SanDisk. Build syncs to iCloud. iPhone reads the iCloud mirror."
 # ====================
@@ -136,6 +137,7 @@ echo "[$(ts)] Writing index…"
 <body>
   <h1>$TITLE</h1>
   <div class="stamp">$SYNC_NOTE</div>
+  <div class="stamp">MASTER-steps.txt last modified: $MASTER_STAMP</div>
   <div class="stamp">Last built: $STAMP</div>
   <div class="grid">
 HTML_HEAD
