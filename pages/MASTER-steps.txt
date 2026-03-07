@@ -5,7 +5,7 @@
 @@ back: ../index.html
 @@ order: 20
 
-# Updated on 03/05/2026 @ 10:30 AM
+# Updated on 03/06/2026 @ 4:35 PM
 
 # Prepare media & target folder
 - Use your MacBook to import photos to Bridge 
