@@ -9,6 +9,7 @@
     body{margin:24px;font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--fg)}
     h1{margin:0 0 8px}
     .stamp{margin:0 0 16px;color:#6b7280;font-size:.95rem}
+    .device-note{margin:0 0 16px;padding:10px 12px;background:#e7eefc;border-left:4px solid #0e49c2;border-radius:8px;color:#1d2939}
     .grid{max-width:1100px;margin:0 auto;display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
     .card{background:var(--card);border-radius:14px;padding:16px 16px 18px;box-shadow:0 6px 18px rgba(16,24,40,.08)}
     .card h2{margin:0 0 6px;font-size:18px}
@@ -19,7 +20,7 @@
 <body>
   <h1>Bridge Tools — Photography Workflow Hub</h1>
 <!-- Tools panel injected by BuildAllFromMaster.sh -->
-<section class="tools" style="margin:16px 0 20px;">
+<section id="bridge-tools-panel" class="tools" style="margin:16px 0 20px;">
   <style>
     .tools .row{display:flex;flex-wrap:wrap;gap:10px}
     .tools .tbtn{
@@ -60,13 +61,23 @@
    href="shortcuts://run-shortcut?name=Edit%20MASTER-steps.txt">
    Edit MASTER-steps.txt
 </a>
+
+    <!-- Open cards-only view -->
+<a class="tbtn"
+   href="?view=cards#hub-cards">
+   Open Workflow Hub (Cards)
+</a>
   </div>
   <p>Tip: For best results opening <code>.command</code> buttons, use Safari.</p>
 </section>
   <div class="stamp">Edits happen on the SanDisk. Build syncs to iCloud. iPhone reads the iCloud mirror.</div>
   <div class="stamp">MASTER-steps.txt last modified: 2026-03-05 13:10:28 PST</div>
   <div class="stamp">Last built: 2026-03-05 15:33:55 PST</div>
-  <div class="grid">
+  <div id="ios-tools-note" class="device-note" style="display:none;">
+    Bridge tools are available on Mac only. You are viewing the cards-only hub.
+    <a href="?view=tools">Show tools anyway</a>
+  </div>
+  <div id="hub-cards" class="grid">
     <div class="card"><h2><a href="pages/import-to-bridge.html" >Importing Photos to Bridge</a></h2><p>Safely copy from camera/card, verify, then review in Bridge.</p><a href="pages/import-to-bridge.html" >Open →</a></div>
     <div class="card"><h2><a href="pages/gps-tracking.html" >GPS Tracking</a></h2><p>Record on GPSMAP 67, export GPX, AirDrop to Mac - requires relevant collection</p><a href="pages/gps-tracking.html" >Open →</a></div>
     <div class="card"><h2><a href="pages/legacy-collections.html" >Using Legacy Photos (2001–2024) in Collections</a></h2><p>Safely use older SanDisk photos in Bridge Collections without moving or breaking anything.</p><a href="pages/legacy-collections.html" >Open →</a></div>
@@ -74,5 +85,31 @@
     <div class="card"><h2><a href="pages/facetime-remotehelp.html" >FaceTime RemoteHelp</a></h2><p>FaceTime-only screen sharing so Dick can show his Mac or allow John to control it (no Messages, no iPhone required).</p><a href="pages/facetime-remotehelp.html" >Open →</a></div>
     <div class="card"><h2><a href="pages/bridgehelp.html" >Update Master-steps.txt from Piper NAS to SandDisk</a></h2><p>Modify Master Steps</p><a href="pages/bridgehelp.html" >Open →</a></div>
   </div>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var requestedView = (params.get("view") || "").toLowerCase();
+      var ua = navigator.userAgent || "";
+      var platform = navigator.platform || "";
+      var maxTouch = navigator.maxTouchPoints || 0;
+      var isIOS = /iPhone|iPad|iPod/.test(ua) || (platform === "MacIntel" && maxTouch > 1);
+
+      var toolsPanel = document.getElementById("bridge-tools-panel");
+      var cardsGrid = document.getElementById("hub-cards");
+      var iosNote = document.getElementById("ios-tools-note");
+
+      var hideToolsForIOS = requestedView !== "tools" && isIOS;
+      var hideToolsManual = requestedView === "cards";
+      var showToolsOnly = requestedView === "tools";
+      var hideTools = hideToolsForIOS || hideToolsManual;
+      var hideCards = showToolsOnly;
+
+      if (toolsPanel) toolsPanel.style.display = hideTools ? "none" : "";
+      if (cardsGrid) cardsGrid.style.display = hideCards ? "none" : "";
+
+      var showIOSNote = hideTools && (hideToolsForIOS || (hideToolsManual && isIOS));
+      if (iosNote) iosNote.style.display = showIOSNote ? "" : "none";
+    })();
+  </script>
 </body>
 </html>

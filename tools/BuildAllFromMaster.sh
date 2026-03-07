@@ -127,6 +127,7 @@ echo "[$(ts)] Writing index…"
     body{margin:24px;font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--fg)}
     h1{margin:0 0 8px}
     .stamp{margin:0 0 16px;color:#6b7280;font-size:.95rem}
+    .device-note{margin:0 0 16px;padding:10px 12px;background:#e7eefc;border-left:4px solid #0e49c2;border-radius:8px;color:#1d2939}
     .grid{max-width:1100px;margin:0 auto;display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
     .card{background:var(--card);border-radius:14px;padding:16px 16px 18px;box-shadow:0 6px 18px rgba(16,24,40,.08)}
     .card h2{margin:0 0 6px;font-size:18px}
@@ -139,7 +140,11 @@ echo "[$(ts)] Writing index…"
   <div class="stamp">$SYNC_NOTE</div>
   <div class="stamp">MASTER-steps.txt last modified: $MASTER_STAMP</div>
   <div class="stamp">Last built: $STAMP</div>
-  <div class="grid">
+  <div id="ios-tools-note" class="device-note" style="display:none;">
+    Bridge tools are available on Mac only. You are viewing the cards-only hub.
+    <a href="?view=tools">Show tools anyway</a>
+  </div>
+  <div id="hub-cards" class="grid">
 HTML_HEAD
 
   sort -t"|" -k1,1n "$META_TMP" | while IFS="|" read -r ord slug title summary; do
@@ -151,6 +156,32 @@ HTML_HEAD
 
   cat <<HTML_TAIL
   </div>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var requestedView = (params.get("view") || "").toLowerCase();
+      var ua = navigator.userAgent || "";
+      var platform = navigator.platform || "";
+      var maxTouch = navigator.maxTouchPoints || 0;
+      var isIOS = /iPhone|iPad|iPod/.test(ua) || (platform === "MacIntel" && maxTouch > 1);
+
+      var toolsPanel = document.getElementById("bridge-tools-panel");
+      var cardsGrid = document.getElementById("hub-cards");
+      var iosNote = document.getElementById("ios-tools-note");
+
+      var hideToolsForIOS = requestedView !== "tools" && isIOS;
+      var hideToolsManual = requestedView === "cards";
+      var showToolsOnly = requestedView === "tools";
+      var hideTools = hideToolsForIOS || hideToolsManual;
+      var hideCards = showToolsOnly;
+
+      if (toolsPanel) toolsPanel.style.display = hideTools ? "none" : "";
+      if (cardsGrid) cardsGrid.style.display = hideCards ? "none" : "";
+
+      var showIOSNote = hideTools && (hideToolsForIOS || (hideToolsManual && isIOS));
+      if (iosNote) iosNote.style.display = showIOSNote ? "" : "none";
+    })();
+  </script>
 </body>
 </html>
 HTML_TAIL
