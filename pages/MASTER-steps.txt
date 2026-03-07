@@ -5,7 +5,7 @@
 @@ back: ../index.html
 @@ order: 20
 
-# Updated on 03/06/2026 @ 4:35 PM
+# Updated on 03/07/2026 @ 2:15 PM
 
 # Prepare media & target folder
 - Use your MacBook to import photos to Bridge 
@@ -27,7 +27,7 @@
 - Insure only 'Convert to DNG" is checked
 - Insure Template to Use is set to 'Basic Metadata'
 - Insert SD card into the MacBook and wait for Photo Downloader panel
-- Click 'Get Photos from:' and click <refresh list>
+- Click 'Get Photos from:' and click 'refresh list'
 - Click Select a Device again and click 'Select a Device'
 - Click where the photos are (like Nikon Z72 or your camera name)
 - Photos should be visible and checked
