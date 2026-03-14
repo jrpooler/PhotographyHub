@@ -31,6 +31,20 @@ if [[ -d "$ROOT/assets" ]]; then
 fi
 touch "$DOCS_DIR/.nojekyll"
 
+# Strip owner-only tools from the shared/docs hub.
+DOCS_INDEX="$DOCS_DIR/index.html"
+if [[ -f "$DOCS_INDEX" ]]; then
+  tmp_index="$(mktemp)"
+  /usr/bin/awk '
+    /<!--[[:space:]]*Build & Open Workflow Hub[[:space:]]*-->/ { skip=1; next }
+    /<!--[[:space:]]*Edit MASTER-steps\.txt[[:space:]]*-->/ { skip=1; next }
+    skip && /<\/a>/ { skip=0; next }
+    skip { next }
+    { print }
+  ' "$DOCS_INDEX" > "$tmp_index"
+  mv "$tmp_index" "$DOCS_INDEX"
+fi
+
 # Stage only hub files to avoid committing unrelated local edits.
 # Use nullglob so missing patterns do not break staging.
 shopt -s nullglob
