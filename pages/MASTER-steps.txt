@@ -5,7 +5,7 @@
 @@ back: ../index.html
 @@ order: 20
 
-# Updated on 03/07/2026 @ 2:15 PM
+# Updated on 03/16/2026 @ 10:00 AM
 
 # Prepare media & target folder
 - Use your MacBook to import photos to Bridge 
@@ -14,13 +14,13 @@
 - Do not insert SD card to Mac yet
 
 # Invoke Bridge to get photos from SD card
-- If the 'Photography Workflow Hub' is not open then double click on 'Bridge Tools' on desktop
+- If the 'Photography Workflow Hub' is not open then double click on 'Bridge Tools Website' on desktop
 - Double click on  'Open Bridge (Shot Dates: Pick Year)' in the HUB tools
 - Click your year choice, then click 'OK' button
 - Click 'File' at top row of your screen
 - Click 'Get Photos From Camera' - this will bring up Adobe Bridge - Photo Downloader
 - Set location with this path:  
--    Macintosh HD / Users / your username / pictures / TripPhotoPhotoToBackup / select year
+-    Macintosh HD / Users / your username / pictures / TripPhotoBackup / select year
 -    Click open
 - Insure 'Create Subfolders' is set to 'Shot Date (yyyymmdd)'
 - Insure 'Rename Files:' is set to 'Do not rename files'
