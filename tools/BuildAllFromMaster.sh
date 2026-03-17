@@ -11,7 +11,7 @@ INDEX="$HUB_ROOT/index.html"
 TMP_INDEX="$HUB_ROOT/.index.new.html"
 STAMP="$(date '+%Y-%m-%d %H:%M:%S %Z')"
 MASTER_STAMP="$(date -r "$MASTER" '+%Y-%m-%d %H:%M:%S %Z')"
-TITLE="Bridge Tools — Photography Workflow Hub"
+TITLE="Bridge Tools — Photography Workflow Hub - Website"
 SYNC_NOTE="Edits happen on the SanDisk. Build syncs to iCloud. iPhone reads the iCloud mirror."
 # ====================
 
