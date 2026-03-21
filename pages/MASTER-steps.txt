@@ -92,7 +92,7 @@
 @@ back: ../index.html
 @@ order: 30
 
-# Updated on 03/05/2026 @ 10:25 AM
+# Updated on 03/20/2026 @ 5:00 PM
 
 # Prepare GPSMAP 67 -
 - Go outside where GPS can lock satellites.
@@ -106,18 +106,23 @@
 # Record the activity
 - Start activity on GPSMAP 67.
 - Walk/drive your route; check track is recording.
-- When done taking pictures, end and save the activity; give it a clear name (like: Lake-Tahoe-2025-11-3)
+- When done taking pictures, end and SAVE the activity; give it a clear name (like: Lake-Tahoe-2025-11-3)
 
-# Initial setup sync with iPhone (Explore App) - this should be done only once
+# Initial setup sync with iPhone (Explore App) - DONE ONLY ONCE!
 - On GPSMAP, Setup >  Bluetooth > Phone > Connect
 - On iPhone, Open Garmin Explore app (paired)
 - Activity syncs automatically to Explore > Library > Activities 
 
 # Share as GPX to MacBook AirDrop
 - Use iPhone, Explore App should be paired with Garmin Explore
-- Click red button (Share as GPX)
-- Export as AirDrop to MacBook - click the AirDrop icon
+- On iPhone, invoke 'Explore' app
+- Push the red + button on bottom of display
+- Push 'Saved' at bottom of screen
+- Your route should show near the top of the screen - tap it.
+- Click red button (Share as GPX) --tap it.
+- Export as AirDrop to your nearby MacBook - click the AirDrop icon to your Mac
 - Find it in Downloads in Mac - use Finder
+- Rename the .gpx file if necessary for easy id (name and date)
 
 # Move gps file from Downloads to Extreme SSD
 - Open Extreme SSD / Backup_Files_To_NAS / GPX TrackLogs 
