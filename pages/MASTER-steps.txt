@@ -20,7 +20,8 @@
 
 
 # Invoke Bridge to get photos from SD card
-- If the 'Photography Workflow Hub' is not open then double click on 'Bridge Tools Website' on desktop
+- If the 'Photography Workflow Hub' is not open then double click 
+-	on 'Bridge Tools Website' on desktop
 - Double click on  'Open Bridge (Shot Dates: Pick Year)' in the HUB tools
 - Click your year choice, then click 'OK' button
 - Click 'File' at top row of your screen
