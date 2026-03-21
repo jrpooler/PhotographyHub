@@ -11,7 +11,13 @@
 - Use your MacBook to import photos to Bridge 
 - Insure SanDisk is attached to MacBook
 - Remove SD card from camera after shooting photos
-- Do not insert SD card to Mac yet
+- Insert SD card to Mac - wait for it to show icon on the desktop
+- The SD Icon should be named (like NIKON Z 7_2)
+
+
+
+
+
 
 # Invoke Bridge to get photos from SD card
 - If the 'Photography Workflow Hub' is not open then double click on 'Bridge Tools Website' on desktop
@@ -19,17 +25,11 @@
 - Click your year choice, then click 'OK' button
 - Click 'File' at top row of your screen
 - Click 'Get Photos From Camera' - this will bring up Adobe Bridge - Photo Downloader
-- Set location with this path:  
--    Macintosh HD / Users / your username / pictures / TripPhotoBackup / select year
--    Click open
+- Set 'Get Photos from: (like NIKON Z7_2) - the name after the camera sd icon   
 - Insure 'Create Subfolders' is set to 'Shot Date (yyyymmdd)'
 - Insure 'Rename Files:' is set to 'Do not rename files'
 - Insure only 'Convert to DNG" is checked
 - Insure Template to Use is set to 'Basic Metadata'
-- Insert SD card into the MacBook and wait for Photo Downloader panel
-- Click 'Get Photos from:' and click 'refresh list'
-- Click Select a Device again and click 'Select a Device'
-- Click where the photos are (like Nikon Z72 or your camera name)
 - Photos should be visible and checked
 - Single Click 'Get Media' at the bottom right of the form (wait for it to finish)
 - Eject Camera SD Card from the desktop
