@@ -45,7 +45,7 @@
 - Now your imports are in 3 places: Your MacBook, Your SanDisk, and your camera's backup SD card
 
 # Switch to SanDisk
-- Open Bridge Tools Dashboard
+- Open Bridge Tools Website if not open
 - Double click 'Run' in Open Bridge (Master)
 - Go to 'Essentials' (if not already there) 
 
