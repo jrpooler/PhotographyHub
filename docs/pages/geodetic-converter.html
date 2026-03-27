@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Geodetic Converter</title>
+  <style>
+    :root {
+      --bg:#eef1f4;
+      --fg:#101828;
+      --card:#fff;
+      --accent:#0e49c2;
+      --muted:#475467;
+      --line:#d0d5dd;
+      --good:#067647;
+      --bad:#b42318;
+    }
+    body{margin:24px;font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--fg)}
+    .wrap{max-width:960px;margin:0 auto}
+    .card{background:var(--card);border-radius:16px;padding:20px;box-shadow:0 6px 18px rgba(16,24,40,.08)}
+    h1{margin:0 0 8px}
+    p{margin:0 0 12px;color:var(--muted)}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:18px}
+    label{display:block;font-weight:600;margin:0 0 6px}
+    input[type="text"]{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:12px;font:inherit;box-sizing:border-box}
+    input[readonly]{background:#f8fafc}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    button,.linkbtn{display:inline-block;padding:11px 15px;border-radius:12px;border:0;background:var(--accent);color:#fff;text-decoration:none;font:inherit;cursor:pointer}
+    button.secondary{background:#344054}
+    .toggle{display:flex;align-items:center;gap:8px;margin:16px 0 0;color:var(--fg)}
+    .toggle input{width:auto}
+    .status{margin-top:16px;padding:12px 14px;border-radius:12px}
+    .status.ok{background:#ecfdf3;color:var(--good)}
+    .status.error{background:#fef3f2;color:var(--bad)}
+    .examples{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+    .examples code{white-space:nowrap}
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Geodetic Converter</h1>
+      <p>Convert latitude and longitude in DDM, DMS, or decimal degrees into Google Maps compatible decimal coordinates.</p>
+      <p>Examples: <code>37,23.214N</code>, <code>37°23'12.84"N</code>, <code>37.387N</code>, <code>-118.1798</code></p>
+
+      <div class="grid">
+        <div>
+          <label for="latitude-input">Latitude</label>
+          <input id="latitude-input" type="text" placeholder="Example: 37,23.214N or 37 23 12.84 N or 37.387">
+        </div>
+        <div>
+          <label for="longitude-input">Longitude</label>
+          <input id="longitude-input" type="text" placeholder="Example: 118,10.788W or 118 10 47.28 W or -118.1798">
+        </div>
+      </div>
+
+      <label class="toggle" for="auto-open">
+        <input id="auto-open" type="checkbox">
+        <span>Open Google Maps automatically after convert</span>
+      </label>
+
+      <div class="actions">
+        <button id="convert-btn" type="button">Convert</button>
+        <button id="open-btn" type="button" class="secondary">Open In Google Maps</button>
+      </div>
+
+      <div class="grid" style="margin-top:18px;">
+        <div>
+          <label for="decimal-lat">Decimal Latitude</label>
+          <input id="decimal-lat" type="text" readonly>
+        </div>
+        <div>
+          <label for="decimal-lon">Decimal Longitude</label>
+          <input id="decimal-lon" type="text" readonly>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;">
+        <label for="maps-url">Google Maps URL</label>
+        <input id="maps-url" type="text" readonly>
+      </div>
+
+      <div id="status" class="status" style="display:none;"></div>
+
+      <div class="examples">
+        <p class="muted">Accepted formats</p>
+        <p><code>37,23.214N</code> and <code>118,10.788W</code> for DDM</p>
+        <p><code>37 23 12.84 N</code> and <code>118 10 47.28 W</code> for DMS</p>
+        <p><code>37.387</code> and <code>-118.1798</code> for decimal degrees</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var latitudeInput = document.getElementById("latitude-input");
+      var longitudeInput = document.getElementById("longitude-input");
+      var decimalLat = document.getElementById("decimal-lat");
+      var decimalLon = document.getElementById("decimal-lon");
+      var mapsUrl = document.getElementById("maps-url");
+      var status = document.getElementById("status");
+      var autoOpen = document.getElementById("auto-open");
+      var lastUrl = "";
+
+      function setStatus(message, kind) {
+        status.textContent = message;
+        status.className = "status " + kind;
+        status.style.display = "block";
+      }
+
+      function clearStatus() {
+        status.style.display = "none";
+        status.textContent = "";
+      }
+
+      function normalize(raw) {
+        return raw.trim().toUpperCase().replace(/[º°]/g, " ").replace(/'/g, " ").replace(/"/g, " ").replace(/,/g, " ");
+      }
+
+      function parseCoordinate(raw, kind) {
+        var text = raw.trim().toUpperCase();
+        if (!text) {
+          throw new Error("Enter " + kind + ".");
+        }
+
+        var directionMatch = text.match(/[NSEW]$/);
+        var direction = directionMatch ? directionMatch[0] : "";
+        var sign = direction === "S" || direction === "W" ? -1 : 1;
+        var body = direction ? text.slice(0, -1).trim() : text;
+
+        var ddmMatch = body.match(/^([+-]?\d+(?:\.\d+)?)\s*,\s*(\d+(?:\.\d+)?)$/);
+        if (ddmMatch) {
+          var ddmDegrees = parseFloat(ddmMatch[1]);
+          var ddmMinutes = parseFloat(ddmMatch[2]);
+          if (ddmMinutes >= 60) throw new Error(kind + " minutes must be less than 60.");
+          var ddmValue = Math.abs(ddmDegrees) + (ddmMinutes / 60);
+          if (direction) return sign * ddmValue;
+          return ddmDegrees < 0 ? -ddmValue : ddmValue;
+        }
+
+        var tokens = normalize(text).split(/\s+/).filter(Boolean);
+        if (tokens.length >= 2 && tokens.length <= 4) {
+          var maybeDirection = tokens[tokens.length - 1];
+          var numericTokens = tokens.slice();
+          if (/^[NSEW]$/.test(maybeDirection)) {
+            direction = maybeDirection;
+            sign = direction === "S" || direction === "W" ? -1 : 1;
+            numericTokens.pop();
+          }
+
+          if (numericTokens.every(function (token) { return /^[-+]?\d+(?:\.\d+)?$/.test(token); })) {
+            var degrees = parseFloat(numericTokens[0]);
+            if (numericTokens.length === 1) {
+              return degrees;
+            }
+
+            var minutes = parseFloat(numericTokens[1]);
+            var seconds = numericTokens.length > 2 ? parseFloat(numericTokens[2]) : 0;
+            if (minutes >= 60 || seconds >= 60) {
+              throw new Error(kind + " minutes and seconds must be less than 60.");
+            }
+
+            var value = Math.abs(degrees) + (minutes / 60) + (seconds / 3600);
+            if (direction) return sign * value;
+            return degrees < 0 ? -value : value;
+          }
+        }
+
+        throw new Error("Could not parse " + kind + ". Use DDM, DMS, or decimal degrees.");
+      }
+
+      function validateRange(latitude, longitude) {
+        if (latitude < -90 || latitude > 90) throw new Error("Latitude must be between -90 and 90.");
+        if (longitude < -180 || longitude > 180) throw new Error("Longitude must be between -180 and 180.");
+      }
+
+      function formatDecimal(value) {
+        return value.toFixed(6).replace(/0+$/, "").replace(/\.$/, "");
+      }
+
+      function buildMapsUrl(latitude, longitude) {
+        return "https://www.google.com/maps?q=" + encodeURIComponent(formatDecimal(latitude) + "," + formatDecimal(longitude));
+      }
+
+      function convertAndMaybeOpen(shouldOpen) {
+        clearStatus();
+
+        try {
+          var latitude = parseCoordinate(latitudeInput.value, "latitude");
+          var longitude = parseCoordinate(longitudeInput.value, "longitude");
+          validateRange(latitude, longitude);
+
+          decimalLat.value = formatDecimal(latitude);
+          decimalLon.value = formatDecimal(longitude);
+          lastUrl = buildMapsUrl(latitude, longitude);
+          mapsUrl.value = lastUrl;
+
+          setStatus("Coordinates converted. Google Maps URL is ready.", "ok");
+
+          if (shouldOpen) {
+            window.open(lastUrl, "_blank", "noopener");
+          }
+        } catch (error) {
+          lastUrl = "";
+          decimalLat.value = "";
+          decimalLon.value = "";
+          mapsUrl.value = "";
+          setStatus(error.message, "error");
+        }
+      }
+
+      document.getElementById("convert-btn").addEventListener("click", function () {
+        convertAndMaybeOpen(autoOpen.checked);
+      });
+
+      document.getElementById("open-btn").addEventListener("click", function () {
+        if (!lastUrl) {
+          convertAndMaybeOpen(false);
+        }
+        if (lastUrl) {
+          window.open(lastUrl, "_blank", "noopener");
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

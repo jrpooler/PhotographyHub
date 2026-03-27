@@ -201,6 +201,18 @@
 - Check the Metadata of photos for GPS values
 
 
+@@ title: Geodetic Converter
+@@ slug: geodetic-converter
+@@ summary: Convert DDM, DMS, or decimal coordinates to a Google Maps link and optionally open it.
+@@ back: ../index.html
+@@ order: 35
+
+# Website tool for manual coordinate conversion
+- Paste or type latitude and longitude separately.
+- Supported input styles: DDM, DMS, and decimal degrees.
+- Output is decimal degrees plus a Google Maps URL.
+
+
 @@ title: Using Legacy Photos (2001–2024) in Collections
 @@ slug: legacy-collections
 @@ summary: Safely use older SanDisk photos in Bridge Collections without moving or breaking anything.
@@ -363,7 +375,6 @@
 - FaceTime calls are sent to Dick’s Apple ID, not a specific device
 - If Dick answers on his Mac, the call is Mac-to-Mac
 - The iPhone is not involved unless Dick answers on it
-
 
 
 
