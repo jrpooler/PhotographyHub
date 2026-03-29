@@ -38,14 +38,14 @@
 - Repeat this process for each Shotdate folder that was in the camera's sd card
 
 # Now send the tagged photos to the SandDisk
-- Open Bridge Tools Dashboard
+- Open Bridge Tools Website (if not already open)
 - Double click 'Run' in 'Send Photos to SanDisk'  (now your imports are in 2 places)
 - Check and then Close result panel 
 - It is now safe to format the camera's sd card using your camera
 - Now your imports are in 3 places: Your MacBook, Your SanDisk, and your camera's backup SD card
 
 # Switch to SanDisk
-- Open Bridge Tools Website if not open
+- Open Bridge Tools Website if not still open
 - Double click 'Run' in Open Bridge (Master)
 - Go to 'Essentials' (if not already there) 
 
