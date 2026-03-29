@@ -63,7 +63,7 @@
 - Click 'Find' and wait for search to complete
 
 # Now use your new Bridge collection to rate or delete photos
-- Use Bridge Tools Dashboard to Open Bridge (Master)
+- Use Bridge Tools Website to Open Bridge (Master)
 - Single click your new Collection (in Essentials - Collections panel)
 - Single click the first photo in the collection
 - If you want to delete this photo, then click Trash Can (in second from top row, right side)
