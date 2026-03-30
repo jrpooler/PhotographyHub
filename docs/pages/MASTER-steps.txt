@@ -57,6 +57,7 @@
 - If more keywords, add more keywords to criteria
 - Add in Criteria, for additional keywords, if any
 - Add in Criteria, Rating is greater than or equal to *** (or whatever rating values you specified)
+- Consider adding date Criteria if you only want to work on the new photos you imported
 - Results: Match, if all criteria are met
 - Checkmark Include All Subfolders
 - Checkmark Include Non-indexed Files
