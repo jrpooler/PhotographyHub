@@ -5,7 +5,7 @@
 @@ back: ../index.html
 @@ order: 10
 
-# Updated on 03/29/2026 @ 5:00 PM
+# Updated on 03/31/2026 @ 9:00 AM
 
 # Prepare media & target folder
 - Use your MacBook to import photos to Bridge 
@@ -20,6 +20,7 @@
 - Click your year choice, then click 'OK' button
 - Click 'File' at top row of your screen
 - Click 'Get Photos From Camera' - this will bring up Adobe Bridge - Photo Downloader
+- Watch out because the Photo Downloader may hide behind Bridge!
 - Set 'Get Photos from: (like NIKON Z7_2) - the name after the camera sd icon   
 - Insure 'Create Subfolders' is set to 'Shot Date (yyyymmdd)'
 - Insure 'Rename Files:' is set to 'Do not rename files'
