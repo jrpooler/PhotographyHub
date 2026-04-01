@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
+export COPYFILE_DISABLE=1
+export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
 echo "RUNNING SCRIPT: $0"
 # ====== CONFIG ======
 VOLUME="Extreme SSD"
@@ -16,6 +18,12 @@ SYNC_NOTE="Edits happen on the SanDisk. Build syncs to iCloud. iPhone reads the 
 # ====================
 
 ts(){ date "+%Y-%m-%d %H:%M:%S"; }
+
+clean_appledouble() {
+  find "$HUB_ROOT" -path "$HUB_ROOT/.git" -prune -o -name '._*' -type f -delete 2>/dev/null || true
+}
+
+trap clean_appledouble EXIT
 
 write_geodetic_converter_page() {
   local out="$PAGES/geodetic-converter.html"
@@ -310,7 +318,7 @@ function emit(   out,esc_title,i,n,line,item,inlist){
   print "<html lang=\"en\">" >> out
   print "<head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">" >> out
   print "<title>" esc_title "</title>" >> out
-  print "<style>body{margin:24px;font:16px/1.6 -apple-system,BlinkMacSystemFont,\"Segoe UI\",Arial,sans-serif;background:#eef1f4;color:#101828}a{color:#0e49c2;text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:900px;margin:0 auto}.card{background:#fff;border-radius:14px;padding:20px;box-shadow:0 6px 18px rgba(16,24,40,.08)}.back{margin:0 0 16px;display:inline-block}</style>" >> out
+  print "<style>*{box-sizing:border-box}html{overflow-x:hidden;-webkit-text-size-adjust:100%}body{margin:24px;font:16px/1.6 -apple-system,BlinkMacSystemFont,\"Segoe UI\",Arial,sans-serif;background:#eef1f4;color:#101828;overflow-x:hidden}a{color:#0e49c2;text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:900px;width:100%;margin:0 auto}.card{background:#fff;border-radius:14px;padding:20px;box-shadow:0 6px 18px rgba(16,24,40,.08);overflow-wrap:anywhere;word-break:break-word}.back{margin:0 0 16px;display:inline-block}h1{margin:0 0 12px;font-size:2.2rem;line-height:1.15}h1,p,li{overflow-wrap:anywhere;word-break:break-word}p,li{font-size:1rem}ul{margin:0 0 1rem;padding-left:1.25rem}@media (max-width:640px){body{margin:12px}.card{padding:16px;border-radius:12px}h1{font-size:2rem}ul{padding-left:1.1rem}}@media (min-width:768px) and (max-width:1180px){body{font-size:20px}.wrap{max-width:760px}.card{padding:28px}h1{font-size:2.85rem}p,li{font-size:1.22rem;line-height:1.75}ul{padding-left:1.35rem}}</style>" >> out
   print "</head><body><div class=\"wrap\">" >> out
 
   # Back link: go back if possible, else to the hub. Use &larr; for the arrow.

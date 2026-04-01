@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
+export COPYFILE_DISABLE=1
+export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
 
 VOLUME="Extreme SSD"
 SRC="/Volumes/${VOLUME}/Backup_Files_To_NAS/PhotographyHub"
@@ -8,6 +10,13 @@ DST="$ICLOUD_ROOT/Photography_Workflow"
 
 echo "Source: $SRC"
 echo "iCloud Dest: $DST"
+
+clean_appledouble() {
+  find "$SRC" -path "$SRC/.git" -prune -o -name '._*' -type f -delete 2>/dev/null || true
+  find "$DST" -name '._*' -type f -delete 2>/dev/null || true
+}
+
+trap clean_appledouble EXIT
 
 # 1) sanity checks
 [[ -d "$SRC" ]] || { echo "ERROR: Source hub not found: $SRC"; exit 1; }
@@ -20,12 +29,15 @@ mkdir -p "$DST"
 rsync -a --delete \
   --exclude ".DS_Store" \
   --exclude "._*" \
+  --exclude ".git" \
+  --exclude ".github" \
   --exclude ".Spotlight-V100" \
   --exclude ".Trashes" \
   "$SRC/" "$DST/"
 
 # 4) iPhone cleanup: remove common confusing artifacts
 find "$DST" -maxdepth 1 -type f \( -name "*.bak" -o -name "*.bak*" -o -name "* alias" \) -print -delete 2>/dev/null || true
+clean_appledouble
 
 # 5) ensure real index.html exists (not empty)
 if [[ ! -s "$DST/index.html" ]]; then

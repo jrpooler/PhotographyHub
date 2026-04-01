@@ -121,9 +121,12 @@ $page = @"
   <title>$(HtmlEscape $Title)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body { margin: 24px; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Arial, sans-serif; }
+    * { box-sizing: border-box; }
+    html { overflow-x: hidden; -webkit-text-size-adjust: 100%; }
+    body { margin: 24px; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Arial, sans-serif; overflow-x: hidden; }
     a { color: #0e49c2; text-decoration: none; } a:hover { text-decoration: underline; }
-    h1 { margin: 0 0 12px; }
+    h1 { margin: 0 0 12px; font-size: 2.2rem; line-height: 1.15; }
+    h1, .title, li { overflow-wrap: anywhere; word-break: break-word; }
     .back { margin-bottom: 16px; display:inline-block; }
     ol.steps { counter-reset: step; list-style: none; padding-left: 0; margin: 12px 0 24px; }
     ol.steps > li { counter-increment: step; margin: 0 0 16px; }
@@ -131,6 +134,16 @@ $page = @"
     ol.steps > li > .title::before { content: "Step " counter(step) ": "; color: #0e49c2; }
     ol.sub { margin: 8px 0 0 28px; padding-left: 16px; list-style: decimal; }
     ol.sub li { margin: 6px 0; }
+    @media (max-width: 640px) {
+      body { margin: 12px; }
+      h1 { font-size: 2rem; }
+      ol.sub { margin-left: 20px; padding-left: 14px; }
+    }
+    @media (min-width: 768px) and (max-width: 1180px) {
+      body { font-size: 20px; }
+      h1 { font-size: 2.85rem; }
+      ol.sub li, ol.steps > li > .title { font-size: 1.22rem; line-height: 1.75; }
+    }
   </style>
 </head>
 <body>

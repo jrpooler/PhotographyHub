@@ -5,12 +5,25 @@
   <title>****NAME OF SUBJECT****</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body { margin: 24px; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Arial, sans-serif; }
+    * { box-sizing: border-box; }
+    html { overflow-x: hidden; -webkit-text-size-adjust: 100%; }
+    body { margin: 24px; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Arial, sans-serif; overflow-x: hidden; }
     a { color: #0e49c2; text-decoration: none; } a:hover { text-decoration: underline; }
-    h1 { margin: 0 0 12px; }
+    h1 { margin: 0 0 12px; font-size: 2.2rem; line-height: 1.15; }
+    h1, li { overflow-wrap: anywhere; word-break: break-word; }
     ol { margin: 12px 0 24px 20px; }
     .back { margin-bottom: 16px; display:inline-block; }
     .note { color:#555; font-size:.95rem; }
+    @media (max-width: 640px) {
+      body { margin: 12px; }
+      h1 { font-size: 2rem; }
+      ol { margin-left: 16px; }
+    }
+    @media (min-width: 768px) and (max-width: 1180px) {
+      body { font-size: 20px; }
+      h1 { font-size: 2.85rem; }
+      li { font-size: 1.22rem; line-height: 1.75; }
+    }
   </style>
 </head>
 <body>

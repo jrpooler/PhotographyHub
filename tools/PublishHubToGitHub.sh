@@ -1,10 +1,18 @@
 #!/usr/bin/env bash
 set -euo pipefail
+export COPYFILE_DISABLE=1
+export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
 
 ts(){ date "+%Y-%m-%d %H:%M:%S"; }
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
+
+clean_appledouble() {
+  find "$ROOT" -path "$ROOT/.git" -prune -o -name '._*' -type f -delete 2>/dev/null || true
+}
+
+trap clean_appledouble EXIT
 
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   echo "[$(ts)] WARNING: Not a git repo; skipping GitHub publish."
@@ -30,6 +38,7 @@ if [[ -d "$ROOT/assets" ]]; then
   rsync -a --delete --exclude ".DS_Store" --exclude "._*" "$ROOT/assets/" "$DOCS_DIR/assets/"
 fi
 touch "$DOCS_DIR/.nojekyll"
+clean_appledouble
 
 # Strip owner-only tools from the shared/docs hub.
 DOCS_INDEX="$DOCS_DIR/index.html"
