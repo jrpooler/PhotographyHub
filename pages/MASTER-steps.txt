@@ -149,6 +149,38 @@
 - Select all jpegs
 - Right click: 'Move to Trash'
 
+@@ title: Update Existing SmugMug Gallery
+@@ slug: update_smugmug-gallery
+@@ summary: Update SmugMug Gallery
+@@ back: ../index.html
+@@ order: 25
+
+# Updated on 04/01/2026
+
+# Login to SmugMug website
+- Login to https://SmudgMug.com with email address and password
+
+# Bring up the gallery you wish to modify
+- Select the Site Homepage you wish to modify 
+- You should see all of the photos currently in the gallery
+
+# How to modify an existing photo
+- Don't try to edit it using SmugMug tools
+- Select a photo to be modified - click it
+- On a top row, click the garbage can to delete it from the selected gallery.
+
+- Place any new or modified photos into the 'SmugMug-JPEGS' folder in Documents
+- Use your Bridge collection relevant to selected Site Homepage on SmugMug
+- Open the collection and select all the photos you wish to send to SmugMug
+- Right click on one of the selected picture icon, then click 'Export to' / 'Custom export'
+- Then Save to / Specific Folder
+- Select your Documents/SmugMug-JPEGS folder
+- Increase Image Quality to maximum (12)
+- Click Start Export button
+-MORE TO COMPLETE
+
+
+
 
 
 @@ title: GPS Tracking
