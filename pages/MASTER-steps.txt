@@ -91,23 +91,38 @@
 @@ back: ../index.html
 @@ order: 20
 
-# Updated on 03/24/2026 @ 10:00 AM
+# Updated on 04/03/2026
 - Requires filtered Bridge collection
 
-# Setup SmugMug for MacOS - do this section once
+# Setup SmugMug for MacOS - DO THIS ONCE
 - Download and install latest App for MacOS
 - Keep new Icon in the dock
+- Create an empty 'SmugMugJpegs' folder on your desktop
 
-# Create a Folder on your Mac to store SmugMug Jpegs - do this once
-- For example 'SmugMug-Jpegs' in your Documents folder
+# Create a new gallery using the SmugMug app ??????? Or just use website??????
+- Single click the SmugMug app on your dock
+- In upper row, click the + (to the left of 'MY Site') then click 'Create Gallery'
+- In the panel, fill in a unique Gallery Name
+- Use your Gallery Preset
+- Visibility: 'Unlisted (Anyone with the Link)
+- Access: 'Anyone'
+- Click 'Create button'
+- Close the app
 
-# Delete all jpegs currently in your SmugMug-Jpegs folder 
+# Login to SmugMug website 
+
+
 
 # Setup Bridge
 - Using Bridge Tools Website, double click Open Bridge (Master)
 - Click the Collection you want to send to SmugMug
 - Insure that the filters list only the photos you want to upload
-- Select all the photos in the collection
+- Select all the photos in the collection (using thumbnails)
+
+
+
+
+
 - Right click on one of the selected thumbnails and place cursor on 'Export to'
 - Then click 'Custom Export' - this will bring up an export panel
 
@@ -155,28 +170,48 @@
 @@ back: ../index.html
 @@ order: 25
 
-# Updated on 04/01/2026
+# Updated on 04/03/2026
 
 # Login to SmugMug website
-- Login to https://SmudgMug.com with email address and password
+- Login to https://SmugMug.com with email address and password
+- Click 'Organize'
 
 # Bring up the gallery you wish to modify
 - Select the Site Homepage you wish to modify 
-- You should see all of the photos currently in the gallery
+- You should see all of the photos currently in the selected gallery
 
-# How to modify an existing photo
+# How to modify existing photo(s)
 - Don't try to edit it using SmugMug tools
-- Select a photo to be modified - click it
-- On a top row, click the garbage can to delete it from the selected gallery.
+- Select one or more photos to be modified or deleted (click each picture thumbnail icon)
+- On a top row, click the garbage can to delete all the selected photos in the selected gallery.
+- Minimize the SmugMug website so we can use it later
 
-- Place any new or modified photos into the 'SmugMug-JPEGS' folder in Documents
-- Use your Bridge collection relevant to selected Site Homepage on SmugMug
-- Open the collection and select all the photos you wish to send to SmugMug
-- Right click on one of the selected picture icon, then click 'Export to' / 'Custom export'
-- Then Save to / Specific Folder
-- Select your Documents/SmugMug-JPEGS folder
-- Increase Image Quality to maximum (12)
-- Click Start Export button
+# Use Bridge Website to invoke 'Open Bridge (Master)
+- Click 'Open Bridge Master'
+- Using 'Essentials', click the relevant Collection (the collection used for SmugMug)
+- Make sure the Collection only lists all photos going to SmugMug
+- Use ACR to enhance any of the pictures in the relevant collection
+- Select all the photos (thumbnails)
+- Right click 'Export to' / 'SmugMugJpegs'
+- Then 'Save To' / 'Specific folder'
+- Browse to your SmugMug-JPEGS folder in Documents
+- Export all the photos in the Bridge collection (even if they are in SmugMug)
+- Set 'Image Format' to 'JPEG'
+- Set 'Extension' to 'jpg'
+- Set 'Image Quality' to 12 (Maximum)
+- Click 'Start Export' button - wait for completion
+- Press 'Clear Jobs'
+- All of the photos in the collection  should be in  'SmugMug-JPEGS' folder on the desktop
+- Check it with Finder
+- Leave the Finder window open 
+- Select all of the JPEGS in the Finder
+
+# Close Bridge and Open SmugMug website
+- Quit Bridge
+- Click the SmugMug website (should be in dock)
+
+
+
 -MORE TO COMPLETE
 
 
