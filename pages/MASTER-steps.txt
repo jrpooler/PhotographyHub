@@ -96,20 +96,19 @@
 
 # Setup SmugMug for MacOS - DO THIS ONCE
 - Create an empty 'SmugMugJpegs' folder on your desktop
---------------------------------------------------------
 
-# Create a new gallery using the SmugMug app ??????? Or just use website??????
-- Single click the SmugMug app on your dock
-- In upper row, click the + (to the left of 'MY Site') then click 'Create Gallery'
-- In the panel, fill in a unique Gallery Name
-- Use your Gallery Preset
-- Visibility: 'Unlisted (Anyone with the Link)
-- Access: 'Anyone'
-- Click 'Create button'
-- Close the app
-
-# Login to SmugMug website 
-
+# Login to SmugMug website
+- At 'https://www.smugmug.com'
+- Enter your credentials
+- On the top row, click 'Organize'
+- In the 3rd row, click '+ Create' button / Gallery
+- You should now see a 'Create Gallery'
+- Select your Preset 
+- Enter Title of Gallery (like 'Fort Bragg 2026')
+- Optionally, enter Description (not required)
+- Optionally, make other adjustments (not required)
+- Double Click the 'CREATE' button
+- Minimize the SmugMug website - we will use it later to add the Jpegs
 
 
 # Setup Bridge
@@ -118,50 +117,30 @@
 - Insure that the filters list only the photos you want to upload
 - Select all the photos in the collection (using thumbnails)
 
+# Send the Jpeg's to the desktop folder
+- Confirm that all of any previous jpeg's are removed from 'SmugMug Jpegs' folder
+- Right click on one of the selected thumbnails and place cursor on 'Export to' 
+- Then click 'SmugMugJpegs'
+- Wait for the all the Jpeg's to transfer to the desktop folder (SmugMugJpegs)
+- Now double click the desktop 'SmugMugJpegs' folder 
+- Confirm that all the photos you want on SmugMug are in that folder
+- Quit Bridge
 
+# Send all the Jpeg's in 'SmugMugJpegs' to the SmugMug Website
+- Double click the SmugMugJpegs folder on the desktop
+- Select all the .jpg files in the folder
+- Open the SmugMug website that you minimized earlier (on the dock)
+- Drag all the jpegs from the desktop to the upload panel in the website
+- Wait for all jpegs to be copied
+- Click 'X' to close the uploader
+- Note the Url to this new Site at the top of the website
+- Your SmugMug now has a new Site Homepage with a given Url
+- Send the Url to anyone who you wish to have access to this site
 
-
-
-- Right click on one of the selected thumbnails and place cursor on 'Export to'
-- Then click 'Custom Export' - this will bring up an export panel
-
-# Fill the panel
-- Preset Name: 'Custom Export'
-- Save To: 'Specific Folder'
-- Click 'Browse' to point to 'SmugMug-Jpegs' in your Documents folder
-- Don't use subfolders
-- Manage Conflicts: 'Create Unique File Name'
-- Image Format: Format JPEG
-- Extension: 'jpg'
-- Image Quality: Maximum (12)
-- Image Resize: Scale Image 100%
-- Metadata: Include Original Metadata: All
-- Leave Content Credentials alone
-- Click 'Start Export' button - wait for completion
-- You should now see the jpegs in your Documents / SmugMug-Jpegs folder
-- Clear the jobs
-
-
-# Build SmugMug Gallery
-- Click the SmugMug app on the dock
-- Click the '+' in front of 'MY SITE'
-- Click 'Create Gallery'
-- Enter Gallery Name (like Fort Bragg 2026)
-
-- Click 'Upload' on top row
-- Click 'INTO NEW GALLERY'
-- Select your 'Gallery Preset'
-- Click 'Create' button at bottom of template
-
-# Now select all the jpg files in SmugMug-JPEGS folder
-- Drag the jpeg photos to the new gallery 
-- Wait for all the jpegs to upload
-- Click the 3 dots at the bottom of the upload panel 
-- Click 'View on SmugMug'
-
-# Remove jpeg photos from SmugMug-JPGEGS (optional)
+# Remove jpeg photos from SmugMugJpegs on the desktop (optional)
 - Select all jpegs
 - Right click: 'Move to Trash'
+- Leave the empty SmugMugJpegs folder on the desktop
 
 @@ title: Update Existing SmugMug Gallery
 @@ slug: update_smugmug-gallery
