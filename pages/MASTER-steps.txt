@@ -34,11 +34,11 @@
 - Pull out the SD card from MacBook
 
 # Now use Bridge to tag photos for the new photos just imported
-- Open the Shotdate folder: double click that folder
-- Select all photos in the shotdate folder
+- Open the ShotDate folder: double click that folder
+- Select all photos in the ShotDate folder
 - Go to 'Keywords' in task bar (second row from the top)
 - Add a new keyword or use an existing one (to add right click in Keywords panel)
-- Repeat this process for each Shotdate folder that was in the camera's sd card
+- Repeat this process for each ShotDate folder that was in the camera's sd card
 
 # Now send the tagged photos to the SandDisk
 - Open Bridge Tools Website (if not already open)
@@ -91,13 +91,12 @@
 @@ back: ../index.html
 @@ order: 20
 
-# Updated on 04/03/2026
-- Requires filtered Bridge collection
+# Updated on 04/04/2026
+- Requires filtered Bridge collection (should be all of the photos going to SmugMug)
 
 # Setup SmugMug for MacOS - DO THIS ONCE
-- Download and install latest App for MacOS
-- Keep new Icon in the dock
 - Create an empty 'SmugMugJpegs' folder on your desktop
+--------------------------------------------------------
 
 # Create a new gallery using the SmugMug app ??????? Or just use website??????
 - Single click the SmugMug app on your dock
