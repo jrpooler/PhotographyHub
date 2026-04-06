@@ -137,13 +137,12 @@
 # Get the Gallery Site Homepage (URL)
 - Login to your SmugMug website
 - On top row, select 'Site'
-- Scroll down to find the relevant 
-
-
-- Click 'Copy Link Address'
+- Scroll down to find the relevant gallery (like 'Fort Bragg 2026')
+- Double click on the picture - this will bring up the gallery
+- At the top of the gallery look for 'https://........' 
+- The url should end with some random characters (for security)
+- Copy that url
 - Paste this address (url) to anyone allowed to access this gallery via email or messages
-- Optionally store URL in your documents folder for easy lookup later
-
 
 # Remove jpeg photos from SmugMugJpegs on the desktop (optional but recommended)
 - Select all jpegs
