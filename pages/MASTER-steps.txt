@@ -91,7 +91,7 @@
 @@ back: ../index.html
 @@ order: 20
 
-# Updated on 04/04/2026
+# Updated on 04/05/2026
 - Requires filtered Bridge collection (should be all of the photos going to SmugMug)
 
 # Setup SmugMug for MacOS - DO THIS ONCE
@@ -133,11 +133,19 @@
 - Drag all the jpegs from the desktop to the upload panel in the website
 - Wait for all jpegs to be copied
 - Click 'X' to close the uploader
-- Note the Url to this new Site at the top of the website
-- Your SmugMug now has a new Site Homepage with a given Url
-- Send the Url to anyone who you wish to have access to this site
 
-# Remove jpeg photos from SmugMugJpegs on the desktop (optional)
+# Get the Gallery Site Homepage (URL)
+- Login to your SmugMug website
+- On top row, select 'Site'
+- Scroll down to find the relevant 
+
+
+- Click 'Copy Link Address'
+- Paste this address (url) to anyone allowed to access this gallery via email or messages
+- Optionally store URL in your documents folder for easy lookup later
+
+
+# Remove jpeg photos from SmugMugJpegs on the desktop (optional but recommended)
 - Select all jpegs
 - Right click: 'Move to Trash'
 - Leave the empty SmugMugJpegs folder on the desktop
