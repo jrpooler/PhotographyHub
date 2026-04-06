@@ -91,7 +91,7 @@
 @@ back: ../index.html
 @@ order: 20
 
-# Updated on 04/05/2026
+# Updated on 04/06/2026
 - Requires filtered Bridge collection (should be all of the photos going to SmugMug)
 
 # Setup SmugMug for MacOS - DO THIS ONCE
@@ -109,7 +109,6 @@
 - Optionally, make other adjustments (not required)
 - Double Click the 'CREATE' button
 - Minimize the SmugMug website - we will use it later to add the Jpegs
-
 
 # Setup Bridge
 - Using Bridge Tools Website, double click Open Bridge (Master)
