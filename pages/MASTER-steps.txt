@@ -154,21 +154,31 @@
 @@ back: ../index.html
 @@ order: 25
 
-# Updated on 04/03/2026
+# Updated on 04/06/2026
 
 # Login to SmugMug website
 - Login to https://SmugMug.com with email address and password
-- Click 'Organize'
+- Click 'Organize' on top row
 
 # Bring up the gallery you wish to modify
-- Select the Site Homepage you wish to modify 
-- You should see all of the photos currently in the selected gallery
+- On the left column, double click on the gallery you wish to modify (like 'Fort Bragg 2026')
+- You should see all of the icon photos currently in the selected gallery
+- 
 
-# How to modify existing photo(s)
+# If you wish to permanently delete photo(s) from the gallery
+- On the 3rd row on the far right second icon click 'Show thumbnails and filenames'
+- Write down on scratch pad the id's of the photos to be removed: We need to remove this photo from the Bridge Collection
+- Single click the picture icon(s) you wish to remove from the gallery
+- You may select one or more photos
+- Double lick the trash can in the upper 3rd row
+- Confirm deletion by clicking the red Delete button
+- Minimize the SmugMug website so we can use it later
+
+# Now add, delete or modify existing photo(s)
 - Don't try to edit it using SmugMug tools
 - Select one or more photos to be modified or deleted (click each picture thumbnail icon)
 - On a top row, click the garbage can to delete all the selected photos in the selected gallery.
-- Minimize the SmugMug website so we can use it later
+
 
 # Use Bridge Website to invoke 'Open Bridge (Master)
 - Click 'Open Bridge Master'
