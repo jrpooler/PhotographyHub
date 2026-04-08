@@ -154,7 +154,7 @@
 @@ back: ../index.html
 @@ order: 25
 
-# Updated on 04/06/2026
+# Updated on 04/08/2026
 
 # Login to SmugMug website
 - Login to https://SmugMug.com with email address and password
@@ -163,22 +163,13 @@
 # Bring up the gallery you wish to modify
 - On the left column, double click on the gallery you wish to modify (like 'Fort Bragg 2026')
 - You should see all of the icon photos currently in the selected gallery
-- 
 
-# If you wish to permanently delete photo(s) from the gallery
-- On the 3rd row on the far right second icon click 'Show thumbnails and filenames'
-- Write down on scratch pad the id's of the photos to be removed: We need to remove this photo from the Bridge Collection
-- Single click the picture icon(s) you wish to remove from the gallery
-- You may select one or more photos
-- Double lick the trash can in the upper 3rd row
-- Confirm deletion by clicking the red Delete button
+# If you wish to add or update (not delete) photos in the selected gallery
+- Don't try to edit it using SmugMug tools - editing is done in Bridge
+- Do editing and adding new photos in Bridge, deletions handled later.
+
+# Minimize the SmugMug website
 - Minimize the SmugMug website so we can use it later
-
-# Now add, delete or modify existing photo(s)
-- Don't try to edit it using SmugMug tools
-- Select one or more photos to be modified or deleted (click each picture thumbnail icon)
-- On a top row, click the garbage can to delete all the selected photos in the selected gallery.
-
 
 # Use Bridge Website to invoke 'Open Bridge (Master)
 - Click 'Open Bridge Master'
@@ -187,29 +178,34 @@
 - Use ACR to enhance any of the pictures in the relevant collection
 - Select all the photos (thumbnails)
 - Right click 'Export to' / 'SmugMugJpegs'
-- Then 'Save To' / 'Specific folder'
-- Browse to your SmugMug-JPEGS folder in Documents
 - Export all the photos in the Bridge collection (even if they are in SmugMug)
-- Set 'Image Format' to 'JPEG'
-- Set 'Extension' to 'jpg'
-- Set 'Image Quality' to 12 (Maximum)
-- Click 'Start Export' button - wait for completion
+- wait for completion
 - Press 'Clear Jobs'
 - All of the photos in the collection  should be in  'SmugMug-JPEGS' folder on the desktop
+- Double click the SmugMugJpegs folder on the desktop
 - Check it with Finder
 - Leave the Finder window open 
-- Select all of the JPEGS in the Finder
+- Select all of the JPEGS in the SmugMugJpegs
+- Open the gallery for this collection
+- Click 'Upload button'
+- Drag all the jpegs from SmugMugJpegs to the gallery on SmugMug
+- Verify that your modifications show up in the gallery
 
 # Close Bridge and Open SmugMug website
 - Quit Bridge
 - Click the SmugMug website (should be in dock)
 
+# If you wish to permanently delete photo(s) from the gallery
+- On the 3rd row on the far right second icon click 'Show thumbnails and filenames'
+- Write down on scratch pad the id's of the photos to be removed: We need to remove this photo from the Bridge Collection so it does not 
+- Single click the picture icon(s) you wish to remove from the gallery
+- You may select one or more photos
+- Double lick the trash can in the upper 3rd row
+- Confirm deletion by clicking the red Delete button
 
-
--MORE TO COMPLETE
-
-
-
+# Clear out all of the jpg files from the SmugMugJpegs folder
+- Select all the jpg files in SmugMugJpegs folder
+- Right click / Move to Trash
 
 
 @@ title: GPS Tracking
