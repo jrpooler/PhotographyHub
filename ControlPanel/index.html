@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Control Panel</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="control-panel-data.js"></script>
+  </head>
+  <body>
+    <main class="page">
+      <header class="page-header">
+        <h1>Control Panel</h1>
+        <p>Quick links for Google tools and photography sites.</p>
+      </header>
+
+      <section
+        id="control-panel"
+        class="panel-grid"
+        aria-label="Launcher categories"
+      ></section>
+    </main>
+
+    <script>
+      const container = document.getElementById("control-panel");
+
+      controlPanelData.forEach(({ category, items }) => {
+        const categoryCard = document.createElement("section");
+        categoryCard.className = "category-card";
+
+        const heading = document.createElement("h2");
+        heading.textContent = category;
+        categoryCard.appendChild(heading);
+
+        const buttonGrid = document.createElement("div");
+        buttonGrid.className = "button-grid";
+
+        items.forEach(({ label, url }) => {
+          const link = document.createElement("a");
+          link.className = "launch-button";
+          link.href = url;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = label;
+          buttonGrid.appendChild(link);
+        });
+
+        categoryCard.appendChild(buttonGrid);
+        container.appendChild(categoryCard);
+      });
+    </script>
+  </body>
+</html>
