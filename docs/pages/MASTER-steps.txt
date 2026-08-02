@@ -146,9 +146,7 @@
 - On top row, select 'Site'
 - Scroll down to find the relevant gallery (like 'Fort Bragg 2026')
 - Double click on the picture - this will bring up the gallery
-- At the top of the gallery look for 'https://........' 
-- The url should end with some random characters (for security)
-- Copy that url
+- Click 'Share' to get the URL with security characters
 - Paste this address (url) to anyone allowed to access this gallery via email or messages
 
 # Remove jpeg photos from SmugMugJpegs on Documents / LocalProjects / SmugMugJpegs  (optional but recommended)
