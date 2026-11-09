@@ -5,7 +5,7 @@
 @@ back: ../index.html
 @@ order: 10
 
-# Updated on 03/31/2026 @ 5:00 PM
+Updated November 9, 2026
 
 # Prepare media & target folder
 - Use your MacBook to import photos to Bridge 
@@ -17,9 +17,9 @@
 - Click any subfolders until you see the raw photos listed
 
 # Invoke Bridge to get photos from SD card
-- If the 'Photography Workflow Hub' is not open then double click on 'Bridge Tools Website'
-- Double click on  'Open Bridge (Shot Dates: Pick Year)' in the HUB tools
-- Click your year choice, then click 'OK' button
+- In Control Panel, select Photography and click Bridge Tools.
+- Choose Open Bridge (Shot Dates: Pick Year), then click Run.
+- Choose the year for your photos, then click OK.
 - Click 'File' at top row of your screen
 - Click 'Get Photos From Camera' - this will bring up Adobe Bridge - Photo Downloader
 - Watch out because the Photo Downloader may hide behind Bridge!
@@ -40,16 +40,16 @@
 - Add a new keyword or use an existing one (to add right click in Keywords panel)
 - Repeat this process for each ShotDate folder that was in the camera's sd card
 
-# Now send the tagged photos to the SandDisk
-- Open Bridge Tools Website (if not already open)
-- Double click 'Run' in 'Send Photos to SanDisk'  (now your imports are in 2 places)
-- Check and then Close result panel 
-- It is now safe to format the camera's sd card using your camera
-- Now your imports are in 3 places: Your MacBook, Your SanDisk, and your camera's backup SD card
+# Send the tagged photos to SanDisk
+- Make sure the Extreme SSD is connected.
+- In Control Panel, select Photography and click Bridge Tools.
+- Choose Send Photos to SanDisk, then click Run.
+- Check the transfer results before closing the results panel.
+- Verify that the photos are on both your MacBook and the SanDisk before formatting the camera’s SD card. Until you format the card, it holds a third copy.
 
 # Switch to SanDisk
-- Open Bridge Tools Website if not still open
-- Double click 'Run' in Open Bridge (Master)
+- In Control Panel, select Photography and click Bridge Tools.
+- Choose Open Bridge (Master), then click Run.
 - Go to 'Essentials' (if not already there) 
 
 # Now use Bridge to create a unique Collection
@@ -67,7 +67,7 @@
 - Click 'Find' and wait for search to complete
 
 # Now use your new Bridge collection to rate or delete photos
-- Use Bridge Tools Website to Open Bridge (Master)
+- If Bridge is closed or showing a different folder, go to Photography in Control Panel, click Bridge Tools, then choose Open Bridge (Master) and click Run.
 - Single click your new Collection (in Essentials - Collections panel)
 - Single click the first photo in the collection
 - If you want to delete this photo, then click Trash Can (in second from top row, right side)
