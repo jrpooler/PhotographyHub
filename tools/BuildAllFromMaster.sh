@@ -388,6 +388,7 @@ HTML_HEAD
   sort -t"|" -k1,1n "$META_TMP" | while IFS="|" read -r ord slug title summary; do
     # The converter remains available at its direct URL from Control Panel.
     [[ "$slug" == "geodetic-converter" ]] && continue
+    [[ "$slug" == "facetime-remotehelp" ]] && continue
     esc_title=${title//&/&amp;}; esc_title=${esc_title//</&lt;}; esc_title=${esc_title//>/&gt;}
     esc_summary=${summary//&/&amp;}; esc_summary=${esc_summary//</&lt;}; esc_summary=${esc_summary//>/&gt;}
     printf '    <div class="card"><h2><a href="pages/%s.html" >%s</a></h2><p>%s</p><a href="pages/%s.html" >Open →</a></div>\n' \
